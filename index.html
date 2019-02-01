@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <!-- Add support for Chrome "theme-color"? -->
+
+        <title>Emilia Michanek</title>
+        <!-- Add favicon (initials?) here. -->
+
+        <link href="css/main.css" type="text/css" rel="stylesheet">
+        <link href="css/prism.css" type="text/css" rel="stylesheet">
+        <script src="js/prism.js"></script>
+    </head>
+    <body>
+        <div class="center-column">
+
+            <!-- Blog title, slogan, etc: -->
+
+            <header>
+                <h1 class="blog-title">Emilia Michanek (IP1)</h1>
+            </header>
+
+            <!-- Site navigation (ongoing, all projects?): -->
+
+            <nav>
+                <ul class="project-list">
+                    <li>Ongoing Projects:</li>
+                    <li><a href="#terminal-commands-v39">Terminal Commands (v39)</a></li>
+                    <li><a href="#introlabb">Introlabb</a></li>
+                    <li><a href="#regex">Reguljära uttryck</a></li>
+                </ul>
+            </nav>
+
+            <!-- Main part of the page (all the articles): -->
+
+            <main>
+
+                <article id="terminal-commands-v39">
+                    <time datetime="2015-10-01 11:05">October 1, 2015</time>
+                    <h2>Terminal Commands (v39): Functions</h2>
+                    <p><b>Task 1</b>: Write a function that takes 0 or more numerical values and prints out the sum of them. The function should print "0" if no paramerters were passed. You may assume that all parameters are numerical, this doesn't need to be checked (but you may do so if you wish).</p>
+                    <img src="img/v39-1.png" alt="Finished code.">
+                    <p>Now, to the explaining part.</p>
+                    <p>Just like any other language, bash has its own strange syntax, and when it comes to functions you may define one in one of two ways:</p>
+                    <p><code>
+                        function test {
+                        }
+                    </code></p>
+                    <p><code>
+                        test () {
+                        }
+                    </code>
+                    </p>
+                    <p>Other than that you may use a whole range of <a href="http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html">expressions</a>. I'm using <code>-eq</code> which is basically the same as <code>==</code>. <code>$#</code> stands for the number of params that were passed.</p>
+                    <p>One strange but kind of nice thing is that bash by default in for's loops over params that were passed. Always nice with short code.</p>
+                    <p><code>sum=$(($sum+$i))</code>, here we are setting sum, our total value, equal to an expression where we are adding the value of sum plus our current number we are looping over.</p>
+                </article>
+                <article id="introlabb">
+                    <time datetime="2015-10-15 11:24">October 15, 2015</time>
+                    <h2>Introlabb</h2>
+                    <img src="img/v42-1.png">
+                    <img src="img/v42-2.png">
+                    <p>We'll pass "resultat.txt" to a while loop. In the while loop we will assign 3 variables for each line in the file.</p>
+                    <p>"name", "values", and "sum". Name cuts on each space and selects first name and last name. Values will turn multiple spaces into just 1, and then it will select all values on that line. Sum will then use substitution to replace all spaces with a plus symbol, and that expression is then passed "bc" which handles the calculation.</p>
+                    <p>Last of all we we add our results for each line to our new result file which we then sort in reverse order.</p>
+                </article>
+                <article id="regex">
+                    <time datetime="2015-10-15 11:24">October 15, 2015</time>
+                    <h2>Reguljära uttryck</h2>
+                    <img src="img/reg-1.png">
+                    <img src="img/reg-2.png">
+                    <h3>What the regexes mean:</h3>
+                    <p><b>LiU:</b> We are searching for 4 to 5 characters of type A-Z and a-z. Then we expect 2 to 3 digits.</p>
+                    <p><b>Date:</b> We're searching for 4 digits followed by dash, 2 digits, dash, followed by 2 more digits.</p>
+                    <p><b>Date (with check):</b> We're searching for a year (4 digits), it could be now, it could be in the future. Dash. If the following digit is 1, only allow 0-2 after it. If the following digit is 0, allow 0-9 after it. Dash. The next digit must either be in range 0-2 or be a 3, if in range 0-2, we'll allow 0-9 after it, if it's a 3, only allow 0 or 1. In Python "pattern.findall()" will return a tuple if the regex has multiple capture groups, so the whole thing is surrounded with "()" to return our whole match as well.</p>
+                    <p><b>HTML:</b> We're searching for a left-angled bracket that has a series of words after it. Python will only return the capture group with "pattern.findall()".</p>
+                    <p>Regex was created for pattern matching in <b>regular languages</b>, and HTML is a <b>context-free language</b>. Therefore it is extremely hard to write a regex to catch all types and variations of HTML. In need of an HTML parser, it is recommended to use a library especially designed for HTML parsing as it would be much faster and easier to use than to maintain a homemade HTML regex.</p>
+                </article>
+            </main>
+
+            <!-- Footer with contact information: -->
+
+            <footer>
+
+                <!-- Contact information: -->
+
+                <h3>Contact me:</h3>
+                <address>
+                    <ul>
+                        <li>Student email: <a href="mailto:lukmi182@student.liu.se">lukmi182@student.liu.se</a></li>
+                        <li>Personal email: <a href="mailto:hello@arethsu.se">hello@arethsu.se</a></li>
+                        <li>Telegram: <a href="https://telegram.me/Kladdkaka">@arethsu</a></li>
+                    </ul>
+              </address>
+
+            </footer>
+        </div>
+    </body>
+</html>

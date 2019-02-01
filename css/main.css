@@ -1,0 +1,49 @@
+/* Modify the page later to have different fonts for titles and articles. */
+* {
+    font-family: Monospace, sans-serif;
+}
+
+/* Center the whole page: */
+.center-column {
+    width: 940px;
+    margin: 0 auto;
+}
+
+/* Remove styling on custom lists: */
+nav ul, footer address ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* I'd rather have a horizontal list for navigation. */
+nav ul li {
+    display: inline;
+}
+
+/* Separate navigation and footer from the rest of the page: */
+nav { border-bottom: 1px solid #D8D8D8; }
+footer { border-top: 1px solid #D8D8D8; }
+
+/* Time is greyed-out to add focus to titles: */
+article time {
+    color: #757575;
+}
+
+/* Article spacing: */
+article { padding-top: 40px; padding-left: 20px; }
+article:first-of-type { padding-top: 30px; }
+article:last-of-type { padding-bottom: 30px; }
+
+/* Remove overflow margin on post titles: */
+article h2:first-of-type {
+    margin-top: 5px;
+}
+
+/* Woo, inclusivity! */
+article p::selection { color: white; }
+article p::selection:nth-of-type(6n+1) { background: #e74c3c; }
+article p::selection:nth-of-type(6n+2) { background: #e67e22; }
+article p::selection:nth-of-type(6n+3) { background: #f1c40f; }
+article p::selection:nth-of-type(6n+4) { background: #2ecc71; }
+article p::selection:nth-of-type(6n+5) { background: #3498db; }
+article p::selection:nth-of-type(6n+6) { background: #9b59b6; }
